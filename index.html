@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mundisalud: consultas, exámenes, planes de bienestar y atención empresarial en Quito.">
+  <title>Mundisalud — Centro Médico</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script type="module" src="./js/main.js"></script>
+</head>
+<body>
+  <div id="ms-web">
+    <div class="ms-top">
+      <span>Quito · Sector La Pradera</span>
+      <span>Servicios individuales · Planes de bienestar · Empresas</span>
+    </div>
+
+    <header>
+      <button class="ms-logo" data-page="inicio" aria-label="Mundisalud inicio">
+        <span class="ms-cross"><i data-lucide="heart-pulse" aria-hidden="true"></i></span>
+        <span>MUNDISALUD<small>CENTRO MÉDICO</small></span>
+      </button>
+      <nav aria-label="Menú principal">
+        <button data-page="inicio" aria-current="page">Inicio</button>
+        <button data-page="servicios">Servicios médicos</button>
+        <button data-page="planes">Planes</button>
+        <button data-page="empresas">Para empresas</button>
+        <button data-page="nosotros">Nosotros</button>
+        <button data-page="contacto">Contacto</button>
+      </nav>
+      <button class="ms-btn" data-page="contacto">Solicitar cita</button>
+    </header>
+
+    <main id="ms-content"></main>
+
+    <footer>
+      <div>
+        <strong>MUNDISALUD</strong>
+        La salud al alcance de todos.
+        <p>Atención médica, prevención y diagnóstico para personas, familias y empresas.</p>
+      </div>
+      <div>
+        <strong>Encuentra tu atención</strong>
+        <button data-page="servicios">Servicios individuales</button>
+        <button data-page="planes">Planes de bienestar</button>
+        <button data-page="empresas">Soluciones empresariales</button>
+      </div>
+      <div>
+        <strong>Visítanos en Quito</strong>
+        <p>Cristóbal de Acuña N29B<br>y Juan de Agama<br>Sector La Pradera</p>
+        <button data-page="contacto">Contacto y ubicación →</button>
+      </div>
+    </footer>
+
+    <div class="ms-footnote">
+      <button class="ms-link" data-page="condiciones" style="color:#bdd4e3">Condiciones de planes</button> ·
+      <button class="ms-link" data-page="privacidad" style="color:#bdd4e3">Privacidad</button>
+      <span style="display:block">Vista conceptual · Las solicitudes de esta maqueta no se envían.</span>
+    </div>
+  </div>
+</body>
+</html>

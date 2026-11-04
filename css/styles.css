@@ -1,0 +1,957 @@
+
+/* =========================================================
+   MS WEB — HOJA DE ESTILOS
+   Estructura organizada por componentes
+   ========================================================= */
+
+
+/* =========================================================
+   01. VARIABLES Y CONFIGURACIÓN GENERAL
+   ========================================================= */
+
+#ms-web {
+  --ms-bg: light-dark(#ffffff, #0c1c2c);
+  --ms-ink: light-dark(#112e46, #e3f1fa);
+  --ms-soft: light-dark(#eff8fc, #142c40);
+  --ms-line: light-dark(#dceaf1, #284358);
+  --ms-muted: light-dark(#536d80, #acc1d1);
+
+  font-family: Arial, sans-serif;
+  color: var(--ms-ink);
+  background: var(--ms-bg);
+  font-size: 15px;
+  line-height: 1.55;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+#ms-web * {
+  box-sizing: border-box;
+}
+
+#ms-web button,
+#ms-web input,
+#ms-web select {
+  font: inherit;
+}
+
+#ms-web button {
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   02. BARRA SUPERIOR
+   ========================================================= */
+
+#ms-web .ms-top {
+  padding: 8px 32px;
+  background: #082746;
+  color: #d1ebf9;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   03. HEADER Y LOGOTIPO
+   ========================================================= */
+
+#ms-web header {
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  background: var(--ms-bg);
+  border-bottom: 1px solid var(--ms-line);
+  flex-wrap: wrap;
+}
+
+#ms-web .ms-logo {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  color: var(--ms-ink);
+  background: none;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+#ms-web .ms-logo small {
+  font-size: 9px;
+  letter-spacing: 2px;
+  display: block;
+  font-weight: 400;
+}
+
+#ms-web .ms-cross {
+  background: #0b7eaf;
+  color: #fff;
+  border: 5px solid #c2f0fc;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+}
+
+
+/* =========================================================
+   04. NAVEGACIÓN
+   ========================================================= */
+
+#ms-web nav {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+}
+
+#ms-web nav button {
+  border: 0;
+  background: transparent;
+  color: var(--ms-muted);
+  font-size: 12px;
+  padding: 10px 9px;
+  border-radius: 8px;
+}
+
+#ms-web nav button[aria-current=page] {
+  background: var(--ms-soft);
+  color: var(--ms-ink);
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   05. BOTONES
+   ========================================================= */
+
+#ms-web .ms-btn {
+  border: 0;
+  border-radius: 9px;
+  background: #0875ac;
+  color: #fff;
+  padding: 12px 17px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  min-height: 44px;
+}
+
+#ms-web .ms-btn.alt {
+  background: var(--ms-bg);
+  color: var(--ms-ink);
+  border: 1px solid var(--ms-line);
+}
+
+#ms-web .ms-btn.light {
+  background: #fff;
+  color: #0a3652;
+}
+
+#ms-web .ms-btn.ghost {
+  background: transparent;
+  color: inherit;
+  border: 1px solid #6b94ae;
+}
+
+
+/* =========================================================
+   06. HERO PRINCIPAL
+   ========================================================= */
+
+#ms-web .ms-hero {
+  padding: 48px 38px;
+  background: linear-gradient(
+    115deg,
+    #061d37,
+    #0a4468 75%,
+    #087c9e
+  );
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+#ms-web .ms-hero h1 {
+  font-size: 43px;
+  line-height: 1.08;
+  letter-spacing: -1.7px;
+  color: #fff;
+  margin: 14px 0 20px;
+  font-weight: 600;
+}
+
+#ms-web .ms-hero p {
+  color: #d5e9f4;
+  margin: 0 0 22px;
+  max-width: 550px;
+}
+
+#ms-web .ms-tag {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #67d3f5;
+  font-weight: 600;
+}
+
+#ms-web .ms-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+#ms-web .ms-hero small {
+  color: #b6d5e6;
+  display: block;
+  margin-top: 17px;
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   07. ILUSTRACIÓN DEL HERO
+   ========================================================= */
+
+#ms-web .ms-art {
+  padding: 26px;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #c7f0fb, #51c6e5);
+  color: #082e48;
+  position: relative;
+  min-height: 285px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 16px 40px #00162a44;
+}
+
+#ms-web .ms-art .ms-bigicon {
+  width: 86px;
+  height: 86px;
+  border-radius: 24px;
+  background: #ffffff99;
+  display: grid;
+  place-items: center;
+  margin: 12px auto;
+  color: #076da2;
+}
+
+#ms-web .ms-bigicon svg {
+  width: 44px;
+  height: 44px;
+}
+
+#ms-web .ms-art h3 {
+  font-size: 23px;
+  margin: 0;
+  text-align: center;
+}
+
+#ms-web .ms-art p {
+  color: #244e63;
+  font-size: 13px;
+  text-align: center;
+  margin: 8px 0;
+}
+
+#ms-web .ms-art-bottom {
+  background: #fff;
+  border-radius: 12px;
+  padding: 13px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  margin-top: 18px;
+}
+
+
+/* =========================================================
+   08. BARRA DE CONFIANZA
+   ========================================================= */
+
+#ms-web .ms-trust {
+  display: flex;
+  justify-content: space-around;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 18px 28px;
+  background: var(--ms-soft);
+  font-size: 12px;
+}
+
+#ms-web .ms-trust span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+
+/* =========================================================
+   09. SECCIONES GENERALES
+   ========================================================= */
+
+#ms-web .ms-sec {
+  padding: 38px;
+}
+
+#ms-web .ms-sec.soft {
+  background: var(--ms-soft);
+}
+
+#ms-web .ms-eyebrow {
+  color: light-dark(#0875ac, #7ad9f5);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+#ms-web h2 {
+  font-size: 27px;
+  line-height: 1.2;
+  letter-spacing: -.6px;
+  margin: 9px 0 12px;
+  font-weight: 600;
+  color: var(--ms-ink);
+}
+
+#ms-web h3 {
+  color: var(--ms-ink);
+  font-size: 17px;
+  line-height: 1.3;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+#ms-web .ms-intro {
+  color: var(--ms-muted);
+  max-width: 650px;
+  margin: 0 0 24px;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   10. CUADRÍCULAS Y TARJETAS
+   ========================================================= */
+
+#ms-web .ms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+#ms-web .ms-grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+#ms-web .ms-tile {
+  background: var(--ms-bg);
+  border: 1px solid var(--ms-line);
+  border-radius: 15px;
+  padding: 23px;
+  min-width: 0;
+}
+
+#ms-web .ms-tile p {
+  font-size: 13px;
+  color: var(--ms-muted);
+  margin: 9px 0 15px;
+}
+
+#ms-web .ms-icon {
+  background: var(--ms-soft);
+  color: light-dark(#0875ac, #7ad9f5);
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+}
+
+
+/* =========================================================
+   11. ENLACES
+   ========================================================= */
+
+#ms-web .ms-link {
+  background: none;
+  border: 0;
+  padding: 7px 0;
+  color: light-dark(#086b99, #7ad9f5);
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+  min-height: 36px;
+}
+
+
+/* =========================================================
+   12. PRECIOS Y PLANES
+   ========================================================= */
+
+#ms-web .ms-price {
+  font-size: 37px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  margin: 15px 0 2px;
+}
+
+#ms-web .ms-price small {
+  font-size: 12px;
+  letter-spacing: 0;
+  color: var(--ms-muted);
+  font-weight: 400;
+}
+
+#ms-web .ms-plan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#ms-web .ms-plan.focus {
+  border: 2px solid #179bc5;
+}
+
+#ms-web .ms-plan ul {
+  padding: 0;
+  list-style: none;
+  margin: 14px 0 20px;
+  flex: 1;
+}
+
+#ms-web .ms-plan li {
+  font-size: 12px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--ms-line);
+}
+
+#ms-web .ms-plan li:before {
+  content: '✓';
+  color: light-dark(#0875ac, #7ad9f5);
+  margin-right: 7px;
+}
+
+#ms-web .ms-note {
+  font-size: 12px;
+  color: var(--ms-muted);
+  margin: 15px 0 0;
+}
+
+
+/* =========================================================
+   13. BANNER DE LLAMADA A LA ACCIÓN
+   ========================================================= */
+
+#ms-web .ms-banner {
+  background: #0a3553;
+  color: #fff;
+  border-radius: 18px;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+#ms-web .ms-banner h2 {
+  color: #fff;
+}
+
+#ms-web .ms-banner p {
+  color: #cce3ef;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   14. PASOS Y NUMERACIÓN
+   ========================================================= */
+
+#ms-web .ms-num {
+  font-size: 13px;
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #0875ac;
+  color: #fff;
+}
+
+#ms-web .ms-step {
+  padding: 12px 15px 12px 0;
+}
+
+#ms-web .ms-step p {
+  color: var(--ms-muted);
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   15. PREGUNTAS FRECUENTES
+   ========================================================= */
+
+#ms-web details {
+  border-bottom: 1px solid var(--ms-line);
+  padding: 17px 0;
+}
+
+#ms-web summary {
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#ms-web details p {
+  font-size: 13px;
+  color: var(--ms-muted);
+  max-width: 720px;
+}
+
+
+/* =========================================================
+   16. FOOTER
+   ========================================================= */
+
+#ms-web footer {
+  background: #071f33;
+  color: #bdd4e3;
+  padding: 30px 38px;
+  font-size: 12px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 28px;
+}
+
+#ms-web footer strong {
+  color: #fff;
+  display: block;
+  margin-bottom: 10px;
+}
+
+#ms-web footer button {
+  display: block;
+  background: none;
+  border: 0;
+  color: #bdd4e3;
+  padding: 5px 0;
+  font: inherit;
+  text-align: left;
+}
+
+#ms-web .ms-footnote {
+  background: #071f33;
+  color: #8dafc4;
+  padding: 12px 38px;
+  font-size: 11px;
+  border-top: 1px solid #234357;
+}
+
+
+/* =========================================================
+   17. MIGAS DE PAN Y ENCABEZADOS DE PÁGINA
+   ========================================================= */
+
+#ms-web .ms-breadcrumb {
+  padding: 15px 38px;
+  font-size: 12px;
+  color: var(--ms-muted);
+  border-bottom: 1px solid var(--ms-line);
+}
+
+#ms-web .ms-breadcrumb button {
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  padding: 0;
+}
+
+#ms-web .ms-heading {
+  padding: 38px;
+  background: var(--ms-soft);
+}
+
+#ms-web .ms-heading h1 {
+  font-size: 34px;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin: 12px 0 15px;
+  color: var(--ms-ink);
+}
+
+#ms-web .ms-heading p {
+  max-width: 650px;
+  color: var(--ms-muted);
+  margin: 0;
+}
+
+
+/* =========================================================
+   18. DISTRIBUCIÓN Y CONTENIDO
+   ========================================================= */
+
+#ms-web .ms-split {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 25px;
+  align-items: start;
+}
+
+#ms-web .ms-sectiontitle {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   19. ETIQUETAS Y LISTAS
+   ========================================================= */
+
+#ms-web .ms-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 18px 0;
+}
+
+#ms-web .ms-pill {
+  padding: 7px 11px;
+  background: var(--ms-soft);
+  color: var(--ms-ink);
+  border-radius: 20px;
+  font-size: 12px;
+  border: 1px solid var(--ms-line);
+}
+
+#ms-web .ms-list {
+  padding-left: 18px;
+  color: var(--ms-muted);
+  font-size: 14px;
+}
+
+#ms-web .ms-list li {
+  margin: 9px 0;
+}
+
+
+/* =========================================================
+   20. FORMULARIOS Y CONTACTO
+   ========================================================= */
+
+#ms-web .ms-contactbox {
+  border-radius: 15px;
+  background: var(--ms-soft);
+  padding: 26px;
+}
+
+#ms-web label {
+  display: block;
+  margin: 13px 0;
+  color: var(--ms-ink);
+  font-size: 13px;
+}
+
+#ms-web input,
+#ms-web select {
+  display: block;
+  width: 100%;
+  padding: 11px;
+  margin-top: 5px;
+  border: 1px solid var(--ms-line);
+  border-radius: 8px;
+  background: var(--ms-bg);
+  color: var(--ms-ink);
+  min-width: 0;
+  font-size: 16px;
+}
+
+#ms-web input[type=checkbox] {
+  width: auto;
+  display: inline;
+  margin-right: 7px;
+}
+
+
+/* =========================================================
+   21. TABLAS
+   ========================================================= */
+
+#ms-web .ms-tablewrap {
+  overflow-x: auto;
+}
+
+#ms-web table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+#ms-web th,
+#ms-web td {
+  padding: 13px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--ms-line);
+  min-width: 100px;
+}
+
+#ms-web th {
+  background: var(--ms-soft);
+}
+
+
+/* =========================================================
+   22. CONTENEDORES Y ESTADOS
+   ========================================================= */
+
+#ms-web .ms-outline {
+  border: 1px dashed var(--ms-line);
+  background: var(--ms-soft);
+  border-radius: 16px;
+  padding: 25px;
+  min-height: 190px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  color: var(--ms-muted);
+}
+
+#ms-web .ms-outline p {
+  font-size: 12px;
+}
+
+#ms-web .ms-status {
+  padding: 13px;
+  border-radius: 8px;
+  background: var(--ms-soft);
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+
+/* =========================================================
+   23. INTERACCIONES Y ACCESIBILIDAD
+   ========================================================= */
+
+#ms-web button:hover {
+  filter: brightness(.95);
+}
+
+#ms-web button:focus-visible,
+#ms-web summary:focus-visible {
+  outline: 3px solid #35c3ed;
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   24. RESPONSIVE — TABLET Y MÓVIL
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  #ms-web .ms-hero {
+    grid-template-columns: 1fr;
+    padding: 30px 22px;
+  }
+
+  #ms-web .ms-hero h1 {
+    font-size: 35px;
+  }
+
+  #ms-web .ms-art {
+    min-height: 220px;
+  }
+
+  #ms-web .ms-sec,
+  #ms-web .ms-heading {
+    padding: 28px 22px;
+  }
+
+  #ms-web .ms-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #ms-web .ms-split,
+  #ms-web .ms-banner {
+    grid-template-columns: 1fr;
+  }
+
+  #ms-web header {
+    padding: 16px 20px;
+  }
+
+  #ms-web nav {
+    width: 100%;
+  }
+
+  #ms-web nav button {
+    font-size: 12px;
+  }
+
+  #ms-web footer {
+    grid-template-columns: 1fr 1fr;
+    padding: 28px 22px;
+  }
+
+  #ms-web .ms-top {
+    padding: 8px 20px;
+  }
+
+  #ms-web .ms-breadcrumb {
+    padding: 12px 22px;
+  }
+}
+
+
+
+/* =========================================================
+   25. RESPONSIVE — MÓVILES PEQUEÑOS
+   ========================================================= */
+
+@media (max-width: 440px) {
+
+  #ms-web .ms-grid,
+  #ms-web .ms-grid.two {
+    grid-template-columns: 1fr;
+  }
+
+  #ms-web footer {
+    grid-template-columns: 1fr;
+  }
+
+  #ms-web h2 {
+    font-size: 25px;
+  }
+
+  #ms-web .ms-hero h1 {
+    font-size: 32px;
+  }
+
+  #ms-web .ms-heading h1 {
+    font-size: 29px;
+  }
+
+}
+
+
+/* =========================================================
+   26. MAPA DE GOOGLE MAPS
+   ========================================================= */
+
+#ms-web .ms-map {
+    width: 100%;
+    margin: 20px 0 28px;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid var(--ms-line);
+    background: var(--ms-soft);
+}
+
+#ms-web .ms-map iframe {
+    display: block;
+    width: 100%;
+    height: 350px;
+    border: 0;
+}
+
+
+/* =========================================================
+   27. ICONOS DE WHATSAPP Y CORREO
+   ========================================================= */
+
+#ms-web .ms-contact-channels {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 18px 0 24px;
+}
+
+/* Contenedor de cada icono */
+
+#ms-web .ms-channel-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--ms-line);
+    border-radius: 50%;
+    background: var(--ms-soft);
+    text-decoration: none;
+    transition: all .25s ease;
+}
+
+/* Icono de WhatsApp */
+
+#ms-web .ms-channel-icon[aria-label="WhatsApp"] {
+    color: #25D366;
+}
+
+#ms-web .ms-channel-icon[aria-label="WhatsApp"] svg {
+    stroke: #25D366;
+}
+
+/* Icono de correo electrónico */
+
+#ms-web .ms-channel-icon[aria-label="Correo electrónico"] {
+    color: #1686C9;
+}
+
+#ms-web .ms-channel-icon[aria-label="Correo electrónico"] svg {
+    stroke: #1686C9;
+}
+
+/* Tamaño de los iconos */
+
+#ms-web .ms-channel-icon svg {
+    width: 21px;
+    height: 21px;
+    stroke-width: 2;
+}
+
+/* Efectos al pasar el cursor */
+
+#ms-web .ms-channel-icon:hover {
+    transform: translateY(-3px);
+    background: var(--ms-bg);
+    border-color: currentColor;
+}
+
+/* Adaptación móvil */
+
+@media (max-width: 600px) {
+
+    #ms-web .ms-map iframe {
+        height: 300px;
+    }
+
+}
+
+

@@ -1,0 +1,7 @@
+{
+  "name": "mundisalud-organizado",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Maqueta web de Mundisalud organizada en módulos JavaScript"
+}
