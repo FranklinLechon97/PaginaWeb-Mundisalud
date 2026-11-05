@@ -431,7 +431,7 @@
 }
 
 #ms-web .ms-plan.focus {
-  border: 2px solid #179bc5;
+    border: 1px solid var(--ms-line);
 }
 
 #ms-web .ms-plan ul {
@@ -954,4 +954,353 @@
 
 }
 
+
+/* =========================================
+   MUNDISALUD - TARJETAS CON IMAGEN DE FONDO
+========================================= */
+
+.ms-service-card {
+    position: relative;
+    min-height: 280px;
+    overflow: hidden;
+    border-radius: 18px;
+    cursor: pointer;
+    isolation: isolate;
+
+    display: flex;
+    align-items: flex-end;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+/* Imagen de fondo */
+
+.ms-service-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+
+    transition: transform 0.7s ease;
+}
+
+/* Capa oscura para leer el texto */
+
+.ms-service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(5, 30, 35, 0.92) 0%,
+        rgba(5, 30, 35, 0.45) 55%,
+        rgba(5, 30, 35, 0.08) 100%
+    );
+    z-index: -1;
+
+    transition: background 0.4s ease;
+}
+
+/* Contenido encima de la fotografía */
+
+.ms-service-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 24px;
+    color: white;
+}
+
+/* Título */
+
+.ms-service-content h3 {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* Descripción */
+
+.ms-service-content p {
+    color: rgba(255,255,255,0.9);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Enlace */
+
+.ms-service-content a {
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Animación */
+
+.ms-service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.20);
+}
+
+.ms-service-card:hover img {
+    transform: scale(1.12);
+}
+
+/* Celulares */
+
+@media (max-width: 600px) {
+    .ms-service-card {
+        min-height: 250px;
+    }
+}
+
+/* Accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+    .ms-service-card,
+    .ms-service-card img {
+        transition: none;
+    }
+}
+
+/* ======================================================
+   28. CORRECCIÓN DE CONTRASTE - TARJETAS DE SERVICIOS
+   ====================================================== */
+
+/* Título blanco */
+
+#ms-web .ms-service-content h3 {
+    color: #ffffff !important;
+    font-size: 22px;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
+}
+
+/* Descripción blanca */
+
+#ms-web .ms-service-content p {
+    color: #ffffff !important;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Enlace Ver servicio */
+
+#ms-web .ms-service-content .ms-link,
+#ms-web .ms-service-content a {
+    color: #ffffff !important;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Icono */
+
+#ms-web .ms-service-content .ms-icon {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.20);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Degradado para mejorar la visibilidad */
+
+#ms-web .ms-service-card::before {
+    background: linear-gradient(
+        to top,
+        rgba(3, 25, 35, 0.96) 0%,
+        rgba(3, 35, 45, 0.70) 55%,
+        rgba(3, 35, 45, 0.15) 100%
+    );
+}
+
+/* ==========================================
+   MUNDISALUD - ANIMACIÓN DE TARJETAS AL HOVER
+========================================== */
+
+/* Estado normal */
+
+#ms-web .ms-tile,
+#ms-web .ms-plan,
+#ms-web .ms-service,
+#ms-web .ms-card {
+    position: relative;
+    isolation: isolate;
+    transition: transform .4s ease, box-shadow .4s ease;
+}
+
+/* Borde azul oculto */
+
+#ms-web .ms-tile::after,
+#ms-web .ms-plan::after,
+#ms-web .ms-service::after,
+#ms-web .ms-card::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    padding: 2px;
+
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        transparent 250deg,
+        #078bc5 290deg,
+        #69dcff 315deg,
+        #078bc5 330deg,
+        transparent 360deg
+    );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Efecto al pasar el cursor */
+
+#ms-web .ms-tile:hover,
+#ms-web .ms-plan:hover,
+#ms-web .ms-service:hover,
+#ms-web .ms-card:hover {
+    transform: translateY(-6px) scale(1.025);
+    box-shadow: 0 12px 28px rgba(0, 80, 130, .16);
+}
+
+/* Borde azul animado al pasar el cursor */
+
+#ms-web .ms-tile:hover::after,
+#ms-web .ms-plan:hover::after,
+#ms-web .ms-service:hover::after,
+#ms-web .ms-card:hover::after {
+    opacity: 1;
+    animation: msBlueBorder 2.5s linear infinite;
+}
+
+/* Accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+    #ms-web .ms-tile,
+    #ms-web .ms-plan,
+    #ms-web .ms-service,
+    #ms-web .ms-card {
+        transition: none;
+    }
+
+    #ms-web .ms-tile:hover::after,
+    #ms-web .ms-plan:hover::after,
+    #ms-web .ms-service:hover::after,
+    #ms-web .ms-card:hover::after {
+        animation: none;
+    }
+}
+/* ======================================================
+   MUNDISALUD - IGUALAR BOTONES DE TODOS LOS PLANES
+====================================================== */
+
+/* Mismo estilo para los botones de las tres tarjetas */
+
+#ms-web .ms-plan .ms-btn,
+#ms-web .ms-plan.focus .ms-btn {
+    background: #0875ac !important;
+    color: #ffffff !important;
+    border: 1px solid #0875ac !important;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+/* Efecto al pasar el cursor */
+
+#ms-web .ms-plan .ms-btn:hover,
+#ms-web .ms-plan.focus .ms-btn:hover {
+    background: #075b87 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 80, 130, .20);
+    
+}
+/* ======================================================
+   MUNDISALUD - EFECTO AZUL EN EL MENÚ
+====================================================== */
+
+/* Estado normal */
+
+#ms-web nav button {
+    position: relative;
+    isolation: isolate;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--ms-muted);
+
+    transition:
+        color .3s ease,
+        background .3s ease;
+}
+
+/* Borde azul oculto */
+
+#ms-web nav button::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1.5px;
+
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        transparent 250deg,
+        #078bc5 290deg,
+        #69dcff 315deg,
+        #078bc5 330deg,
+        transparent 360deg
+    );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Efecto al pasar el cursor */
+
+#ms-web nav button:hover {
+    color: #0875ac;
+    background: var(--ms-soft);
+}
+
+#ms-web nav button:hover::after {
+    opacity: 1;
+    animation: msBlueBorder 2.5s linear infinite;
+}
+
+/* Botón de la página seleccionada */
+
+#ms-web nav button[aria-current="page"] {
+    background: #0875ac;
+    color: #ffffff;
+    border-color: #0875ac;
+    font-weight: 700;
+}
+
+/* Mantener seleccionado el botón sin animación */
+
+#ms-web nav button[aria-current="page"]::after {
+    opacity: 0;
+    animation: none;
+}
 
