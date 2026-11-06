@@ -81,9 +81,9 @@ function homeHero() {
                     SALUD · PREVENCIÓN · BIENESTAR
                 </span>
 
-                <div class="ms-bigicon">
-                    ${icon('heart-pulse')}
-                </div>
+                <div class="ms-bigicon ms-heart-beat">
+    ${icon('heart-pulse')}
+</div>
 
                 <h3>
                     Cuidarte empieza aquí.

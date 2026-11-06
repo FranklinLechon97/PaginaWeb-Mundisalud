@@ -108,9 +108,10 @@ function enterpriseHero() {
                     Atención coordinada
                 </span>
 
-                <div class="ms-bigicon">
-                    ${icon('truck')}
-                </div>
+                <!-- Carrito animado de la portada empresarial -->
+<div class="ms-bigicon ms-carrito-animado">
+    ${icon('truck')}
+</div>
 
                 <h3>
                     Más cerca de tu equipo.
@@ -132,89 +133,140 @@ function enterpriseHero() {
 
 }
 
-
 // ======================================================
-// 4. CATÁLOGO DE SERVICIOS EMPRESARIALES
+// 4. CATÁLOGO DE SERVICIOS EMPRESARIALES CON IMÁGENES
+// ======================================================
+// ======================================================
+// 4. CARRUSEL AUTOMÁTICO DE SERVICIOS EMPRESARIALES
 // ======================================================
 
 function enterpriseServices() {
 
+    const images = [
+        'assets/images/Servicios_Ocupacionales.jpg',
+        'assets/images/Laboratorio_Ocupacional.jpg',
+        'assets/images/Unidad_Movil.jpg',
+        'assets/images/Campañas_Preventivas.jpg',
+        'assets/images/Charlas_Capacitaciones.jpg',
+        'assets/images/Atencion_Especializada.jpg'
+    ];
+
+    // Duplicamos los servicios para crear un movimiento continuo
+    const services = [...offers, ...offers];
+
     return `
-        <div class="ms-grid">
+        <div class="ms-enterprise-carousel">
 
-            ${offers.map(service => `
+            <div class="ms-enterprise-track">
 
-                <div class="ms-tile">
+                ${services.map((service, index) => `
 
-                    <span class="ms-icon">
-                        ${icon(service[0])}
-                    </span>
+                    <div class="ms-service-card ms-enterprise-slide">
 
-                    <h3>
-                        ${service[1]}
-                    </h3>
+                        <img
+                            src="${images[index % images.length]}"
+                            alt="${service[1]}"
+                            loading="lazy"
+                        >
 
-                    <p>
-                        ${service[2]}
-                    </p>
+                        <div class="ms-service-content">
 
-                    ${link(
-                        'Consultar propuesta',
-                        'cotizacion'
-                    )}
+                            <span class="ms-icon">
+                                ${icon(service[0])}
+                            </span>
 
-                </div>
+                            <h3>${service[1]}</h3>
 
-            `).join('')}
+                            <p>${service[2]}</p>
+
+                            ${link(
+                                'Consultar propuesta',
+                                'cotizacion'
+                            )}
+
+                        </div>
+
+                    </div>
+
+                `).join('')}
+
+            </div>
 
         </div>
     `;
-
 }
-
-
 // ======================================================
 // 5. MODALIDADES DE ATENCIÓN
+// TARJETAS CORPORATIVAS SIN IMÁGENES
 // ======================================================
 
 function mobileUnit() {
 
     return `
-        <div class="ms-grid two">
+        <div class="ms-grid two ms-mobile-grid">
 
-            <div class="ms-tile">
+            <!-- ATENCIÓN EN MUNDISALUD -->
 
-                <h3>
-                    En Mundisalud
-                </h3>
+            <div class="ms-mobile-option">
 
-                <p>
-                    Organización de citas y atención
-                    en nuestras instalaciones.
-                </p>
+                <div class="ms-mobile-topbar"></div>
+
+                <div class="ms-mobile-option-content">
+
+                    <div class="ms-mobile-option-icon">
+                        ${icon('hospital')}
+                    </div>
+
+                    <h3>En Mundisalud</h3>
+
+                    <p>
+                        Organización de citas y atención
+                        médica en nuestras instalaciones,
+                        con comodidad y confianza.
+                    </p>
+
+                    ${link(
+                        'Solicitar atención',
+                        'cotizacion'
+                    )}
+
+                </div>
 
             </div>
 
 
-            <div class="ms-tile">
+            <!-- ATENCIÓN EN TU EMPRESA -->
 
-                <h3>
-                    En tu empresa
-                </h3>
+            <div class="ms-mobile-option">
 
-                <p>
-                    Brigadas y atención extramural sujetas
-                    a coordinación y disponibilidad.
-                </p>
+                <div class="ms-mobile-topbar"></div>
+
+                <div class="ms-mobile-option-content">
+
+                    <div class="ms-mobile-option-icon">
+                        ${icon('truck')}
+                    </div>
+
+                    <h3>En tu empresa</h3>
+
+                    <p>
+                        Brigadas médicas y jornadas de
+                        atención extramural, sujetas
+                        a coordinación y disponibilidad.
+                    </p>
+
+                    ${link(
+                        'Solicitar brigada',
+                        'cotizacion'
+                    )}
+
+                </div>
 
             </div>
 
         </div>
     `;
-
 }
-
-
 // ======================================================
 // 6. PROCESO DE COORDINACIÓN EMPRESARIAL
 // ======================================================

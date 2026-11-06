@@ -105,29 +105,198 @@
 
 /* =========================================================
    04. NAVEGACIÓN
+   MENÚ PRINCIPAL + REGISTRARSE + INICIAR SESIÓN
    ========================================================= */
 
-#ms-web nav {
-  display: flex;
-  gap: 3px;
-  flex-wrap: wrap;
+/* Contenedor del menú */
+
+#ms-web header nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
-#ms-web nav button {
-  border: 0;
-  background: transparent;
-  color: var(--ms-muted);
-  font-size: 12px;
-  padding: 10px 9px;
-  border-radius: 8px;
+/* Todas las pestañas */
+
+#ms-web header nav button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    padding: 10px 9px;
+
+    background: transparent;
+    color: var(--ms-muted);
+
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-#ms-web nav button[aria-current=page] {
-  background: var(--ms-soft);
-  color: var(--ms-ink);
-  font-weight: 700;
+/* =========================================
+   EFECTO HOVER - PESTAÑAS NORMALES
+   ========================================= */
+/* =========================================
+   HOVER - MENÚ PRINCIPAL AZUL OSCURO
+========================================= */
+
+#ms-web header nav button:not(.ms-nav-register):not(.ms-nav-login):hover {
+    background: #1F456E;
+    color: #ffffff;
+    border-color: #69DCFF;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 15px rgba(31, 69, 110, 0.25);
+}
+/* Pestaña seleccionada */
+
+#ms-web header nav button:not(.ms-nav-register):not(.ms-nav-login)[aria-current="page"] {
+    background: #e7f7fc;
+    color: #075b87;
+    border-color: #2094b8;
+    font-weight: 700;
 }
 
+/* =========================================
+   BOTONES REGISTRARSE E INICIAR SESIÓN
+   ========================================= */
+
+#ms-web header nav .ms-nav-register,
+#ms-web header nav .ms-nav-login {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 10px 13px;
+
+    border: 2px solid ;
+    border-radius: 10px;
+
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Iconos Lucide */
+
+#ms-web header nav .ms-nav-register svg,
+#ms-web header nav .ms-nav-login svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+/* Registrarse e Iniciar : fondo blanco */
+
+#ms-web header nav .ms-nav-register {
+    background: #ffffff;
+    color: #1f456e;
+}
+#ms-web header nav .ms-nav-login {
+    background: #ffffff;
+    color: #1f456e;
+}
+
+/* =========================================
+   HOVER - BOTONES DE ACCESO
+   ========================================= */
+
+#ms-web header nav .ms-nav-register:hover,
+#ms-web header nav .ms-nav-login:hover {
+    border-color: #69dcff;
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 5px 15px rgba(105, 220, 255, 0.30);
+}
+
+
+#ms-web header nav .ms-nav-register:hover,
+#ms-web header nav .ms-nav-login:hover {
+    background: #075b87;
+    color: #ffffff;
+}
+
+/* =========================================
+   BOTONES REGISTRARSE E INICIAR SESIÓN
+   CUANDO ESTÁN SELECCIONADOS
+   ========================================= */
+
+#ms-web header nav .ms-nav-register[aria-current="page"],
+#ms-web header nav .ms-nav-login[aria-current="page"] {
+
+    /* Fondo azul oscuro */
+    background: #1F456E;
+
+    /* Letras e iconos blancos */
+    color: #ffffff;
+
+    /* Borde celeste */
+    border-color: #69DCFF;
+
+    /* Texto destacado */
+    font-weight: 700;
+
+    /* Resplandor celeste */
+    box-shadow: 0 0 0 2px rgba(105, 220, 255, 0.20);
+}
+
+/* =========================================
+   ACCESIBILIDAD
+   ========================================= */
+
+#ms-web header nav button:focus-visible {
+    outline: 3px solid #69dcff;
+    outline-offset: 3px;
+}
+
+/* Menú adaptable */
+
+@media (max-width: 600px) {
+
+    #ms-web header nav {
+        gap: 5px;
+    }
+
+    #ms-web header nav button {
+        padding: 8px 9px;
+        font-size: 12px;
+    }
+
+    #ms-web header nav .ms-nav-register,
+    #ms-web header nav .ms-nav-login {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
+
+/* Movimiento reducido */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #ms-web header nav button {
+        transition: none;
+    }
+
+    #ms-web header nav button:hover {
+        transform: none;
+    }
+}
 
 /* =========================================================
    05. BOTONES
@@ -404,8 +573,6 @@
   align-items: center;
   min-height: 36px;
 }
-
-
 /* =========================================================
    12. PRECIOS Y PLANES
    ========================================================= */
@@ -1246,61 +1413,309 @@
         background .3s ease;
 }
 
-/* Borde azul oculto */
+/* ======================================================
+   MUNDISALUD - BORDES DE PLANES BIENESTAR
+====================================================== */
 
-#ms-web nav button::after {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1.5px;
+#ms-web .ms-plan,
+#ms-web .ms-plan.focus {
 
-    background: conic-gradient(
-        from 0deg,
-        transparent 0deg,
-        transparent 250deg,
-        #078bc5 290deg,
-        #69dcff 315deg,
-        #078bc5 330deg,
-        transparent 360deg
-    );
+    border: 3px solid #1F456E !important;
 
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
+    border-radius: 18px;
 
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-
-    opacity: 0;
-    pointer-events: none;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 /* Efecto al pasar el cursor */
 
-#ms-web nav button:hover {
+#ms-web .ms-plan:hover,
+#ms-web .ms-plan.focus:hover {
+
+    border-color: #1F456E !important;
+
+    box-shadow: 0 8px 25px rgba(123, 215, 243, 0.3);
+}
+/* ======================================================
+   MUNDISALUD - CARRUSEL AUTOMÁTICO EMPRESARIAL
+====================================================== */
+
+#ms-web .ms-enterprise-carousel {
+    width: 100%;
+    overflow: hidden;
+    padding: 15px 3px 25px;
+}
+
+#ms-web .ms-enterprise-track {
+    display: flex;
+    gap: 15px;
+    width: max-content;
+    animation: msEnterpriseScroll 30s linear infinite;
+}
+
+#ms-web .ms-enterprise-slide {
+    flex: 0 0 auto;
+    width: calc((min(100vw - 76px, 1100px) - 30px) / 3);
+    min-width: 0;
+ 
+    border-radius: 18px;
+}
+
+/* Desplazamiento continuo */
+
+@keyframes msEnterpriseScroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pausar cuando el usuario interactúa */
+
+#ms-web .ms-enterprise-carousel:hover .ms-enterprise-track,
+#ms-web .ms-enterprise-carousel:focus-within .ms-enterprise-track {
+    animation-play-state: paused;
+}
+
+/* Tablets: dos tarjetas visibles */
+
+@media (max-width: 900px) {
+
+    #ms-web .ms-enterprise-slide {
+        width: calc((100vw - 70px) / 2);
+    }
+
+}
+
+/* Celulares: una tarjeta visible */
+
+@media (max-width: 600px) {
+
+    #ms-web .ms-enterprise-slide {
+        width: calc(100vw - 70px);
+    }
+
+}
+
+/* Accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #ms-web .ms-enterprise-track {
+        animation: none;
+    }
+
+    #ms-web .ms-enterprise-carousel {
+        overflow-x: auto;
+    }
+
+}
+/* ======================================================
+   29. MUNDISALUD - UNIDAD MÓVIL
+   TARJETAS COMPACTAS CON BORDES AZULES
+====================================================== */
+
+#ms-web .ms-mobile-grid {
+    display: grid;
+
+    /* Dos tarjetas del mismo ancho */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    /* Separación entre cuadros */
+    gap: 22px;
+
+    /* Ocupar todo el ancho disponible */
+    width: 100%;
+    max-width: none;
+
+    /* Estirar las tarjetas a la misma altura */
+    align-items: stretch;
+
+    margin: 0;
+}
+/* Tarjetas principales */
+
+#ms-web .ms-mobile-option {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #ffffff;
+
+    /* Borde azul normal */
+    border: 3px solid #1F456E;
+    border-radius: 16px;
+
+    overflow: hidden;
+    min-width: 0;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
+
+/* Franja azul superior */
+
+#ms-web .ms-mobile-topbar {
+    width: 100%;
+    height: 14px;
+    flex-shrink: 0;
+
+    background: linear-gradient(
+        90deg,
+        #09283c,
+        #0875ac,
+        #69dcff
+    );
+}
+
+/* Contenido más compacto */
+
+#ms-web .ms-mobile-option-content {
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    flex: 1;
+}
+
+/* Contenedor del icono */
+
+#ms-web .ms-mobile-option-icon {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    background: #e7f7fc;
+
+    border: 1px solid #b5e8f7;
+    border-radius: 12px;
+
     color: #0875ac;
-    background: var(--ms-soft);
+
+    margin-bottom: 12px;
+
+    transition:
+        transform .35s ease,
+        background .35s ease;
 }
 
-#ms-web nav button:hover::after {
-    opacity: 1;
-    animation: msBlueBorder 2.5s linear infinite;
+/* Tamaño del icono */
+
+#ms-web .ms-mobile-option-icon svg {
+    width: 25px;
+    height: 25px;
+    stroke-width: 1.8;
 }
 
-/* Botón de la página seleccionada */
+/* Títulos */
 
-#ms-web nav button[aria-current="page"] {
-    background: #0875ac;
-    color: #ffffff;
-    border-color: #0875ac;
+#ms-web .ms-mobile-option h3 {
+    color: #112e46;
+
+    font-size: 19px;
     font-weight: 700;
+
+    margin: 0 0 8px;
 }
 
-/* Mantener seleccionado el botón sin animación */
+/* Descripciones */
 
-#ms-web nav button[aria-current="page"]::after {
-    opacity: 0;
-    animation: none;
+#ms-web .ms-mobile-option p {
+    color: #536d80;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    margin: 0 0 14px;
+
+    flex: 1;
 }
 
+/* Enlaces */
+
+#ms-web .ms-mobile-option .ms-link {
+    color: #0875ac;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    margin-top: auto;
+}
+
+/* ======================================================
+   EFECTOS HOVER
+====================================================== */
+
+/* Borde azul cambia a celeste */
+
+#ms-web .ms-mobile-option:hover {
+    transform: translateY(-6px);
+
+    border-color: #69DCFF;
+
+    box-shadow:
+        0 0 12px rgba(105, 220, 255, 0.35),
+        0 10px 24px rgba(8, 117, 172, 0.15);
+}
+
+/* Animación del icono */
+
+#ms-web .ms-mobile-option:hover .ms-mobile-option-icon {
+    transform: scale(1.08);
+    background: #d5f4ff;
+}
+
+/* Color del enlace */
+
+#ms-web .ms-mobile-option .ms-link:hover {
+    color: #075b87;
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 600px) {
+
+    #ms-web .ms-mobile-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        gap: 16px;
+    }
+
+    #ms-web .ms-mobile-option-content {
+        padding: 18px;
+    }
+
+    #ms-web .ms-mobile-option h3 {
+        font-size: 18px;
+    }
+}
+
+/* Accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #ms-web .ms-mobile-option,
+    #ms-web .ms-mobile-option-icon {
+        transition: none;
+    }
+
+    #ms-web .ms-mobile-option:hover,
+    #ms-web .ms-mobile-option:hover .ms-mobile-option-icon {
+        transform: none;
+    }
+}

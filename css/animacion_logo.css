@@ -1,0 +1,185 @@
+/* ======================================================
+   MUNDISALUD - ANIMACIONES DE ICONOS
+   Archivo: css/animacion_logo.css
+   ====================================================== */
+/* ======================================================
+   01. CARRITO - CONDUCIENDO POR CARRETERA
+   ====================================================== */
+
+/* Cuadro que contiene el carrito */
+
+#ms-web .ms-carrito-animado {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Carretera en movimiento debajo del carrito */
+
+#ms-web .ms-carrito-animado::after {
+    content: "";
+    position: absolute;
+
+    bottom: 15px;
+    left: 0;
+
+    width: 200%;
+    height: 3px;
+
+    background: repeating-linear-gradient(
+        90deg,
+        #0875ac 0px,
+        #0875ac 12px,
+        transparent 12px,
+        transparent 23px
+    );
+
+    opacity: 0.45;
+    animation: msCarretera 0.6s linear infinite;
+}
+
+/* Carrito conduciendo */
+
+#ms-web .ms-carrito-animado svg {
+    position: relative;
+    z-index: 2;
+
+    animation: msConduciendo 1.2s ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+/* Líneas de velocidad detrás del vehículo */
+
+#ms-web .ms-carrito-animado::before {
+    content: "";
+    position: absolute;
+
+    top: 42%;
+    left: 5px;
+
+    width: 16px;
+    height: 2px;
+
+    background: #0875ac;
+    border-radius: 5px;
+
+    box-shadow:
+        -5px 8px 0 #0875ac,
+        -3px -8px 0 #0875ac;
+
+    opacity: 0;
+
+    animation: msVelocidadCarrito 0.8s linear infinite;
+}
+
+/* Vibración suave como si estuviera conduciendo */
+
+@keyframes msConduciendo {
+    0%, 100% {
+        transform: translateX(-3px) translateY(0);
+    }
+
+    25% {
+        transform: translateX(-1px) translateY(-2px);
+    }
+
+    50% {
+        transform: translateX(2px) translateY(0);
+    }
+
+    75% {
+        transform: translateX(4px) translateY(-1px);
+    }
+}
+
+/* La carretera pasa por debajo del vehículo */
+
+@keyframes msCarretera {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-23px);
+    }
+}
+
+/* Las líneas de velocidad pasan hacia atrás */
+
+@keyframes msVelocidadCarrito {
+    0% {
+        transform: translateX(24px);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+}
+
+/* Accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+    #ms-web .ms-carrito-animado svg,
+    #ms-web .ms-carrito-animado::before,
+    #ms-web .ms-carrito-animado::after {
+        animation: none;
+    }
+}
+/* ======================================================
+   02. MUNDISALUD - CORAZÓN LATIENDO
+   Página: Inicio
+   ====================================================== */
+
+/* Corazón dentro de su cuadro original */
+
+#ms-web .ms-bigicon.ms-heart-beat svg {
+    color: #0875ac;
+    stroke: #0875ac;
+
+    transform-origin: center center;
+
+    animation: msLatidoCorazon 1.5s ease-in-out infinite;
+}
+
+/* Dos latidos consecutivos y una pausa */
+
+@keyframes msLatidoCorazon {
+
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0 transparent);
+    }
+
+    15% {
+        transform: scale(1.22);
+        filter: drop-shadow(0 0 8px rgba(8, 117, 172, 0.5));
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.13);
+        filter: drop-shadow(0 0 5px rgba(8, 117, 172, 0.3));
+    }
+
+    60%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0 transparent);
+    }
+}
+
+/* Accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+    #ms-web .ms-bigicon.ms-heart-beat svg {
+        animation: none;
+    }
+}

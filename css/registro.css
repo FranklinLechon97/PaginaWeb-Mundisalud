@@ -1,0 +1,445 @@
+
+/* ======================================================
+   MUNDISALUD - FORMULARIO DE REGISTRO
+   Archivo: css/registro.css
+   ====================================================== */
+
+
+/* ======================================================
+   01. VENTANA MODAL
+   ====================================================== */
+
+#ms-register-modal[hidden] {
+    display: none !important;
+}
+
+#ms-register-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    font-family: Arial, sans-serif;
+}
+
+#ms-register-modal *,
+#ms-register-modal *::before,
+#ms-register-modal *::after {
+    box-sizing: border-box;
+}
+
+
+/* ======================================================
+   02. FONDO OSCURO
+   ====================================================== */
+
+#ms-register-modal .ms-modal-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(5, 24, 43, 0.65);
+}
+
+
+/* ======================================================
+   03. CONTENEDOR DEL FORMULARIO
+   ====================================================== */
+
+#ms-register-modal .ms-modal-content {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    padding: 28px;
+
+    background: #ffffff;
+    color: #112e46;
+
+    border: 2px solid #1f456e;
+    border-radius: 18px;
+
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ======================================================
+   04. BOTÓN CERRAR
+   ====================================================== */
+
+#ms-register-modal .ms-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    padding: 0;
+
+    background: transparent;
+    color: #1f456e;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 27px;
+    line-height: 1;
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+#ms-register-modal .ms-modal-close:hover {
+    background: #e7f7fc;
+}
+
+
+/* ======================================================
+   05. ENCABEZADO
+   ====================================================== */
+
+#ms-register-modal .ms-register-header {
+    margin-bottom: 22px;
+    text-align: center;
+}
+
+#ms-register-modal .ms-register-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 56px;
+    height: 56px;
+
+    margin: 0 auto 14px;
+
+    background: #e7f7fc;
+    color: #0875ac;
+
+    border-radius: 16px;
+}
+
+#ms-register-modal .ms-register-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+#ms-register-modal .ms-register-header h2 {
+    margin: 0 0 8px;
+
+    color: #1f456e;
+
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+#ms-register-modal .ms-register-header p {
+    margin: 0;
+
+    color: #536d80;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* ======================================================
+   06. FORMULARIO
+   ====================================================== */
+
+#ms-register-modal #ms-register-form {
+    display: block;
+    width: 100%;
+}
+
+#ms-register-modal .ms-register-field {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-width: 0;
+
+    margin-bottom: 14px;
+}
+
+#ms-register-modal .ms-register-field label {
+    display: block;
+
+    margin: 0 0 6px;
+
+    color: #112e46;
+
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+
+/* ======================================================
+   07. CAMPOS DE ENTRADA
+   ====================================================== */
+
+#ms-register-modal .ms-register-field input {
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+    height: 43px;
+
+    padding: 11px 12px;
+
+    background: #ffffff;
+    color: #112e46;
+
+    border: 1px solid #cbdde8;
+    border-radius: 9px;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#ms-register-modal .ms-register-field input::placeholder {
+    color: #8b9daa;
+}
+
+#ms-register-modal .ms-register-field input:focus {
+    border-color: #0875ac;
+
+    box-shadow: 0 0 0 3px rgba(8, 117, 172, 0.15);
+}
+
+
+/* ======================================================
+   08. CAMPOS EN DOS COLUMNAS
+   ====================================================== */
+
+#ms-register-modal .ms-register-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    column-gap: 12px;
+    row-gap: 0;
+
+    width: 100%;
+}
+
+
+/* ======================================================
+   09. BOTÓN CREAR CUENTA
+   ====================================================== */
+
+#ms-register-modal .ms-register-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    margin-top: 10px;
+    padding: 13px 16px;
+
+    background: #1f456e;
+    color: #ffffff;
+
+    border: 2px solid #1f456e;
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+#ms-register-modal .ms-register-submit:hover {
+    background: #0875ac;
+    border-color: #0875ac;
+
+    transform: translateY(-2px);
+}
+
+
+/* ======================================================
+   10. MENSAJE GENERAL
+   ====================================================== */
+
+#ms-register-modal #ms-register-feedback {
+    margin: 12px 0;
+
+    color: #0875ac;
+
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+#ms-register-modal #ms-register-feedback:empty {
+    display: none;
+}
+
+
+/* ======================================================
+   11. PIE DEL FORMULARIO
+   ====================================================== */
+
+#ms-register-modal .ms-register-login {
+    margin: 18px 0 0;
+
+    color: #536d80;
+
+    font-size: 12px;
+    text-align: center;
+}
+
+#ms-register-modal .ms-register-login button {
+    padding: 5px 8px;
+
+    background: transparent;
+    color: #0875ac;
+
+    border: none;
+    border-radius: 6px;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+#ms-register-modal .ms-register-login button:hover {
+    background: #e7f7fc;
+    color: #1f456e;
+}
+
+
+/* ======================================================
+   12. MENSAJE DE ERROR SUPERIOR
+   ====================================================== */
+
+#ms-register-modal .ms-register-alert {
+    display: block;
+
+    padding: 12px 14px;
+    margin-bottom: 18px;
+
+    background: #fff0f0;
+    color: #c62828;
+
+    border: 1px solid #ef9a9a;
+    border-left: 4px solid #c62828;
+    border-radius: 9px;
+
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+#ms-register-modal .ms-register-alert[hidden] {
+    display: none !important;
+}
+
+
+/* ======================================================
+   13. CÉDULA INCORRECTA
+   ====================================================== */
+
+/* Label rojo */
+
+#ms-register-modal
+#ms-register-cedula-field.ms-field-error label {
+    color: #c62828;
+}
+
+/* Borde rojo */
+
+#ms-register-modal
+#ms-register-cedula-field.ms-field-error input {
+    border: 2px solid #c62828;
+    background: #fff8f8;
+}
+
+/* Foco rojo */
+
+#ms-register-modal
+#ms-register-cedula-field.ms-field-error input:focus {
+    border-color: #c62828;
+
+    box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.15);
+}
+
+
+/* ======================================================
+   14. DISEÑO RESPONSIVE
+   ====================================================== */
+
+@media (max-width: 480px) {
+
+    #ms-register-modal {
+        padding: 12px;
+    }
+
+    #ms-register-modal .ms-modal-content {
+        padding: 22px 18px;
+
+        max-height: 92vh;
+    }
+
+    #ms-register-modal .ms-register-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #ms-register-modal .ms-register-header h2 {
+        font-size: 21px;
+    }
+
+    #ms-register-modal .ms-register-field input {
+        height: 44px;
+    }
+}
+
+
+/* ======================================================
+   15. ACCESIBILIDAD
+   ====================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #ms-register-modal button,
+    #ms-register-modal input {
+        transition: none;
+    }
+
+    #ms-register-modal .ms-register-submit:hover {
+        transform: none;
+    }
+}
