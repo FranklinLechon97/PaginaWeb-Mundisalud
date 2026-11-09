@@ -1719,3 +1719,428 @@
         transform: none;
     }
 }
+
+/* =========================================================
+   MUNDISALUD - COTIZACIÓN EMPRESARIAL
+   DISEÑO UNIFICADO CON IMAGEN Y FORMULARIO FLOTANTE
+   ========================================================= */
+
+/* 01. SECCIÓN CON FOTOGRAFÍA DE FONDO */
+
+#ms-web .ms-sec:has(.ms-quote-layout) {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      110deg,
+      rgba(3, 35, 64, 0.85) 0%,
+      rgba(5, 67, 105, 0.66) 50%,
+      rgba(3, 39, 72, 0.80) 100%
+    ),
+    url("../assets/images/Empresas_Medicos.jpg")
+    center center / cover no-repeat;
+
+  padding: 40px clamp(18px, 4vw, 65px);
+}
+
+/* 02. TÍTULO DE COTIZACIÓN */
+
+#ms-web .ms-sec:has(.ms-quote-layout) > .ms-eyebrow {
+  color: #8de8ff;
+}
+
+#ms-web .ms-sec:has(.ms-quote-layout) > h2 {
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+
+/* 03. DISTRIBUCIÓN DE COLUMNAS */
+
+#ms-web .ms-quote-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 28px;
+  align-items: start;
+  max-width: 1320px;
+  margin: 20px auto;
+}
+
+/* 04. INFORMACIÓN EMPRESARIAL */
+
+#ms-web .ms-quote-info {
+  position: relative;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  min-height: auto;
+  padding: 30px 15px;
+  color: #ffffff;
+}
+
+#ms-web .ms-quote-info .ms-eyebrow {
+  color: #a4ebff;
+}
+
+#ms-web .ms-quote-info h3 {
+  color: #ffffff;
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.2;
+  margin: 18px 0;
+}
+
+#ms-web .ms-quote-info p {
+  color: #e6f5ff;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* 05. BENEFICIOS CON EFECTO CRISTAL */
+
+#ms-web .ms-quote-benefit {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 13px 15px;
+  color: #ffffff;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.25s, transform 0.25s;
+}
+
+#ms-web .ms-quote-benefit:hover {
+  background: rgba(255, 255, 255, 0.20);
+  transform: translateX(4px);
+}
+
+#ms-web .ms-quote-benefit svg {
+  color: #9ceaff;
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+}
+
+/* 06. FORMULARIO FLOTANTE */
+
+#ms-web .ms-quote-form {
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.93);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 20px;
+  padding: 25px 28px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    0 20px 55px rgba(0, 20, 45, 0.25),
+    0 0 18px rgba(255, 255, 255, 0.12);
+}
+
+#ms-web .ms-quote-form h3 {
+  color: #07395e;
+  font-size: 23px;
+  margin: 0 0 6px;
+}
+
+#ms-web .ms-quote-subtitle {
+  color: #536d80;
+  font-size: 12px;
+  margin: 0 0 17px;
+}
+
+/* 07. CAMPOS COMPACTOS */
+
+#ms-web .ms-quote-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 14px;
+}
+
+#ms-web .ms-quote-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+  margin: 0;
+  color: #173c59;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#ms-web .ms-quote-fields input,
+#ms-web .ms-quote-fields select,
+#ms-web .ms-quote-fields textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 38px;
+  padding: 9px 11px;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #102f4b;
+  background: rgba(248, 252, 255, 0.96);
+  border: 1px solid #cbdfea;
+  border-radius: 8px;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#ms-web .ms-quote-fields textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+#ms-web .ms-quote-fields :is(input, select, textarea):focus {
+  outline: none;
+  border-color: #008ac4;
+  box-shadow: 0 0 0 3px rgba(0, 138, 196, 0.15);
+}
+
+#ms-web .ms-quote-full {
+  grid-column: 1 / -1;
+}
+
+/* 08. PRIVACIDAD */
+
+#ms-web .ms-quote-privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 15px 0;
+  font-size: 12px;
+  color: #173c59;
+}
+
+#ms-web .ms-quote-privacy input {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* 09. BOTÓN */
+
+#ms-web .ms-quote-form > .ms-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 9px;
+  background: linear-gradient(120deg, #087db5, #00558b);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#ms-web .ms-quote-form > .ms-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 90, 150, 0.25);
+}
+
+#ms-web .ms-quote-form .ms-feedback {
+  margin-top: 12px;
+}
+
+/* 10. TABLET */
+
+@media (max-width: 900px) {
+  #ms-web .ms-quote-layout {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  #ms-web .ms-quote-info {
+    padding: 15px 0;
+  }
+}
+
+/* 11. CELULAR */
+
+@media (max-width: 600px) {
+  #ms-web .ms-sec:has(.ms-quote-layout) {
+    padding: 25px 15px;
+  }
+
+  #ms-web .ms-quote-fields {
+    grid-template-columns: 1fr;
+  }
+
+  #ms-web .ms-quote-form {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  #ms-web .ms-quote-info h3 {
+    font-size: 27px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #ms-web .ms-quote-benefit,
+  #ms-web .ms-quote-form > .ms-btn {
+    transition: none;
+  }
+}
+/* VALIDACIÓN DEL RUC EMPRESARIAL */
+
+#ms-web .ms-quote-form .ms-field-error {
+  display: block;
+  color: #d62828;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+#ms-web .ms-quote-form input:invalid:not(:focus) {
+  border-color: #d62828;
+}
+
+#ms-web .ms-quote-form input:focus {
+  outline: none;
+  border-color: #087bb5;
+  box-shadow: 0 0 0 3px rgba(8, 123, 181, 0.15);
+}
+/* IDENTIFICACIÓN INCORRECTA */
+
+#ms-web .ms-quote-form .ms-input-error {
+    border: 2px solid #d62828 !important;
+    background: #fff3f3 !important;
+}
+
+#ms-web .ms-quote-form .ms-field-error {
+    display: block;
+    color: #d62828;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+/* =====================================================
+   MUNDISALUD - FORMULARIO DE CONTACTO EMPRESARIAL
+   ===================================================== */
+
+/* FONDO MÉDICO COMPLETO */
+
+#ms-web .ms-sec:has(.ms-enterprise-contact) {
+    position: relative;
+    isolation: isolate;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(3, 35, 64, 0.85),
+            rgba(5, 67, 105, 0.68),
+            rgba(3, 39, 72, 0.82)
+        ),
+        url("../assets/images/Empresas_Medicos.jpg")
+        center / cover no-repeat;
+
+    padding: 40px clamp(18px, 4vw, 65px);
+}
+
+/* TÍTULO DE LA SECCIÓN */
+
+#ms-web .ms-sec:has(.ms-enterprise-contact) > .ms-eyebrow {
+    color: #9ceaff;
+}
+
+#ms-web .ms-sec:has(.ms-enterprise-contact) > h2 {
+    color: #ffffff;
+}
+
+/* CONTENEDOR DEL FORMULARIO */
+
+#ms-web .ms-enterprise-contact {
+    max-width: 850px;
+    margin: 25px auto;
+}
+
+/* FORMULARIO FLOTANTE */
+
+#ms-web .ms-enterprise-contact form {
+    background: rgba(255, 255, 255, 0.93);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 22px;
+
+    padding: 28px 32px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 20px 55px rgba(0, 20, 45, 0.25),
+        0 0 18px rgba(255, 255, 255, 0.12);
+}
+
+/* CAMPOS MÁS COMPACTOS */
+
+#ms-web .ms-enterprise-contact form label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #173c59;
+}
+
+#ms-web .ms-enterprise-contact form input,
+#ms-web .ms-enterprise-contact form select,
+#ms-web .ms-enterprise-contact form textarea {
+    min-height: 38px;
+    padding: 9px 11px;
+    border-radius: 8px;
+    border: 1px solid #cbdfea;
+    background: #f8fcff;
+    font-size: 13px;
+}
+
+/* EFECTO AL SELECCIONAR UN CAMPO */
+
+#ms-web .ms-enterprise-contact form input:focus,
+#ms-web .ms-enterprise-contact form select:focus,
+#ms-web .ms-enterprise-contact form textarea:focus {
+    outline: none;
+    border-color: #008ac4;
+    box-shadow: 0 0 0 3px rgba(0, 138, 196, 0.15);
+}
+
+/* BOTÓN */
+
+#ms-web .ms-enterprise-contact form button[type="submit"] {
+    background: linear-gradient(120deg, #087db5, #00558b);
+    color: white;
+    border: none;
+    border-radius: 9px;
+    padding: 12px 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#ms-web .ms-enterprise-contact form button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 90, 150, 0.25);
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+    #ms-web .ms-sec:has(.ms-enterprise-contact) {
+        padding: 25px 15px;
+    }
+
+    #ms-web .ms-enterprise-contact {
+        margin: 15px auto;
+    }
+
+    #ms-web .ms-enterprise-contact form {
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+}

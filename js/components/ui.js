@@ -12,6 +12,7 @@ import { services } from "../data/services.js";
 import { plans } from "../data/plans.js";
 
 
+
 // ======================================================
 // 1. ICONOS
 // ======================================================
@@ -75,8 +76,6 @@ export const bread = (title) => {
         </div>
     `;
 };
-
-
 // ======================================================
 // 6. SECCIONES
 // ======================================================
@@ -477,3 +476,199 @@ export const compare = () => {
 // ======================================================
 // FIN DEL ARCHIVO ui.js
 // ======================================================
+
+/* =====================================================
+   FORMULARIO DE COTIZACIÓN EMPRESARIAL
+   ===================================================== */
+
+export const enterpriseQuoteForm = () => {
+  return `
+    <div class="ms-quote-layout">
+
+      <!-- COLUMNA IZQUIERDA -->
+      <aside class="ms-quote-info">
+
+        <span class="ms-eyebrow">
+          MUNDISALUD EMPRESAS
+        </span>
+
+        <h3>Cuidamos la salud de tu equipo</h3>
+
+        <p>
+          Diseñamos propuestas de atención médica
+          adaptadas a las necesidades de tu empresa.
+        </p>
+
+        <div class="ms-quote-benefit">
+          ${icon("heart-pulse")}
+          <span>Atención médica personalizada</span>
+        </div>
+
+        <div class="ms-quote-benefit">
+          ${icon("users")}
+          <span>Bienestar para tus colaboradores</span>
+        </div>
+
+        <div class="ms-quote-benefit">
+          ${icon("calendar-check")}
+          <span>Coordinación de jornadas médicas</span>
+        </div>
+
+      </aside>
+
+      <!-- COLUMNA DERECHA -->
+      <form
+        class="ms-quote-form"
+        data-form="empresa"
+      >
+
+        <h3>Solicitar cotización</h3>
+
+        <p class="ms-quote-subtitle">
+          Los campos marcados con * son obligatorios.
+        </p>
+
+        <div class="ms-quote-fields">
+
+          <label>
+            Nombre completo *
+            <input type="text" name="nombre"
+              minlength="3" maxlength="100"
+              placeholder="Nombre y apellido"
+              autocomplete="name" required>
+          </label>
+
+          <label>
+            Empresa *
+            <input type="text" name="empresa"
+              maxlength="150"
+              placeholder="Nombre de la empresa"
+              required>
+          </label>
+
+          
+<label>
+    Cédula o RUC *
+
+    <input
+        type="text"
+        id="ms-ruc-empresa"
+        name="ruc"
+        inputmode="numeric"
+        pattern="([0-9]{10}|[0-9]{13})"
+        maxlength="13"
+        placeholder="Ingresa tu cédula o RUC"
+        autocomplete="off"
+        aria-describedby="ms-ruc-error"
+        required
+    >
+
+    <small
+        id="ms-ruc-error"
+        class="ms-field-error"
+        aria-live="polite"
+    ></small>
+</label>
+
+
+          <label>
+            Celular *
+            <input type="tel" name="celular"
+              inputmode="numeric"
+              pattern="09[0-9]{8}"
+              maxlength="10"
+              placeholder="09XXXXXXXX"
+              required>
+          </label>
+
+          <label>
+            Correo electrónico *
+            <input type="email" name="correo"
+              placeholder="correo@empresa.com"
+              required>
+          </label>
+
+          <label>
+            Ciudad *
+            <input type="text" name="ciudad"
+              placeholder="Ciudad de atención"
+              required>
+          </label>
+
+          <label>
+            Número de colaboradores *
+            <select name="colaboradores" required>
+              <option value="">Seleccionar</option>
+              <option value="1-10">1 a 10</option>
+              <option value="11-50">11 a 50</option>
+              <option value="51-100">51 a 100</option>
+              <option value="100+">Más de 100</option>
+            </select>
+          </label>
+
+          <label>
+            Servicio requerido *
+            <select name="interes" required>
+              <option value="">Seleccionar</option>
+              <option>Evaluaciones ocupacionales</option>
+              <option>Brigada médica</option>
+              <option>Unidad móvil</option>
+              <option>Laboratorio ocupacional</option>
+              <option>Convenio integral</option>
+            </select>
+          </label>
+
+          <label>
+            Modalidad de atención *
+            <select name="modalidad" required>
+              <option value="">Seleccionar</option>
+              <option>En centro médico</option>
+              <option>En instalaciones de la empresa</option>
+              <option>Por coordinar</option>
+            </select>
+          </label>
+
+          <label>
+            Fecha estimada
+            <input type="date" name="fecha">
+          </label>
+
+          <label class="ms-quote-full">
+            Descripción del requerimiento *
+            <textarea name="descripcion"
+              minlength="10" maxlength="1500"
+              rows="4"
+              placeholder="Cuéntanos qué necesita tu empresa"
+              required></textarea>
+          </label>
+
+        </div>
+
+        <label class="ms-quote-privacy">
+          <input type="checkbox"
+            name="privacidad" required>
+          <span>
+            He leído y acepto el
+            <a href="#privacidad" data-page="privacidad">
+              aviso de privacidad
+            </a>.
+          </span>
+        </label>
+
+        <button class="ms-btn" type="submit">
+          ${icon("send")}
+          Solicitar propuesta
+        </button>
+
+        <p class="ms-note">
+          Demostración: no ingreses datos personales reales.
+        </p>
+
+        <div class="ms-feedback"
+          role="status"
+          aria-live="polite"></div>
+
+      </form>
+    </div>
+  `;
+};

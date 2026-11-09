@@ -371,14 +371,17 @@ export function enterprise() {
         ) +
 
 
-        // Formulario de contacto
-        sec(
-            'Conversemos',
-            '¿Qué necesita tu empresa?',
-            '',
-            form('empresa')
-        )
-
+        // Formulario de contacto empresarial
+sec(
+    'Conversemos',
+    '¿Qué necesita tu empresa?',
+    '',
+    `
+    <div class="ms-enterprise-contact">
+        ${form('empresa')}
+    </div>
+    `
+)
     );
 
 }

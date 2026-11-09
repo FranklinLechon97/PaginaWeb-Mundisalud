@@ -7,7 +7,13 @@ import { about } from "./pages/about.js";
 import { contact } from "./pages/contact.js";
 import { conditions } from "./pages/conditions.js";
 import { privacy } from "./pages/privacy.js";
-import { bread, heading, sec, form } from "./components/ui.js";
+import {
+  bread,
+  heading,
+  sec,
+  form,
+  enterpriseQuoteForm
+} from "./components/ui.js";
 
 export function renderPage(page) {
   if (page.startsWith("servicio-")) return servicePage(page.slice("servicio-".length));
@@ -25,7 +31,12 @@ export function renderPage(page) {
     cotizacion: () =>
       bread("Empresas / Cotización") +
       heading("Hablemos de tu empresa", "Solicita una propuesta empresarial.", "Cuéntanos qué necesita tu equipo para coordinar una propuesta de atención.") +
-      sec("Cotización", "Datos de contacto y alcance", "", form("empresa")),
+      sec(
+  "Cotización",
+  "Datos de contacto y alcance",
+  "",
+  enterpriseQuoteForm()
+),
   };
 
   return (pages[page] || home)();
